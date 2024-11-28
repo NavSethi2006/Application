@@ -14,10 +14,11 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets)
 
 add_executable(Application
   src/main.cpp
-  src/window.cpp
   src/MainForm.ui
 )
-target_link_libraries(Application Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(Application Qt${QT_VERSION_MAJOR}::Core
+                                  Qt${QT_VERSION_MAJOR}::Gui
+                                  Qt${QT_VERSION_MAJOR}::Widgets)
 
 include(GNUInstallDirs)
 install(TARGETS Application

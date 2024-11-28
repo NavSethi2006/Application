@@ -1,16 +1,21 @@
 #include <iostream>
 #include <QtCore/qcoreapplication.h>
-#include "window.h"
-#include "ui_MainForm.h"
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QtWidgets>
+#include "../build/Application_autogen/include/ui_MainForm.h"
 
 int main(int argc, char *argv[])
 {
 
-    std::cout << "Hello World\n";
+    QApplication a(argc, argv);
 
-    QCoreApplication a(argc, argv);
-    
-    QWidget widget;
+    QMainWindow window;
+    Ui::MainWindow ui;
+    ui.setupUi(&window);
+    window.show();
+
+
+
 
     return a.exec();
 }
