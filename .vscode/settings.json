@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "qmainwindow": "cpp",
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "qtwidgets": "cpp",
+        "qscrollarea": "cpp",
+        "qwidget": "cpp",
+        "string": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "enabled"
 }
