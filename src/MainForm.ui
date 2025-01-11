@@ -148,6 +148,16 @@
     <property name="frameShadow">
      <enum>QFrame::Shadow::Raised</enum>
     </property>
+    <widget class="QWidget" name="camera" native="true">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>481</width>
+       <height>311</height>
+      </rect>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -156,7 +166,7 @@
      <x>0</x>
      <y>0</y>
      <width>1081</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

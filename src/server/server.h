@@ -13,7 +13,7 @@ extern "C" {
 
 void server_init();
 
-void server_getframe();
+char* server_getframe();
 
 #ifndef __cplusplus
 }

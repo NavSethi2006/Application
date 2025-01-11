@@ -1,4 +1,14 @@
-#include "server.h"
+
+
+#define DATAGRAM_SIZE 2000
+
+#include <stdio.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <stdlib.h>
+#include <libavutil/base64.h>
+
 
 int sock_desc;
 struct sockaddr_in server_addr;
@@ -16,7 +26,7 @@ void server_init() {
 
     if(sock_desc < 0) {
         perror("[-]ERROR WHILE CREATING SOCKET : ");
-        return -1;
+        exit(1);
     }
     printf("[+]Socket created\n");
 
@@ -24,22 +34,30 @@ void server_init() {
     server_addr.sin_port = htons(2000);
     server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-    if(bind(sock_desc,(struct serveraddr_in*) &server_addr, sizeof(server_addr)) < 0) {
+    if(bind(sock_desc,(struct sockaddr*) &server_addr, sizeof(server_addr)) < 0) {
         perror("[-]ERROR WHILE BINDING SOCKET : ");
-        return -1;
+        exit(1);
     }
     
     printf("[+]Binding Success\n");
 }
 
-void server_getframe() {
+char* server_getframe() {
 
-    if(recvfrom(sock_desc, client_message, sizeof(client_addr), 0, 
-    (struct serveraddr_in*) &client_addr, &client_struct_length)) {
+    if(recvfrom(sock_desc, client_message, sizeof(client_message), 0, 
+    (struct sockaddr*) &client_addr, &client_struct_length) < 0) {
         perror("[-]ERROR WHILE RECIVING MESSAGE");
-        return -1;
+        exit(1);
     }
+
+    char* raw_camera_binary;
+
+    av_base64_decode(client_message, raw_camera_binary, sizeof(client_message));
+
+    printf("%s\n",raw_camera_binary);
+
+    return raw_camera_binary;
 
 }
 
-//TODO : Complete UDP and add cisco/h264 codec in order to decode the encoded frames from the python opencv script
+

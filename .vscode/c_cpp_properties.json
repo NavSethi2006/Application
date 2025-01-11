@@ -4,7 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${default}",
-                "${workspaceFolder}/build/Application_autogen/build"
+                "${workspaceFolder}/build/Application_autogen/build",
+                "/usr/include/gstreamer-1.0/"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",

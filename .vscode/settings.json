@@ -5,7 +5,10 @@
         "qtwidgets": "cpp",
         "qscrollarea": "cpp",
         "qwidget": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "glib.h": "c",
+        "gbase64.h": "c",
+        "qgraphicsview": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }
