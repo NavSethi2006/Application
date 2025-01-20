@@ -10,7 +10,6 @@
 int main(int argc, char *argv[])
 {
 
-
     QApplication a(argc, argv);
     QMainWindow window;
     Ui::MainWindow ui;

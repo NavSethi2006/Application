@@ -2,8 +2,8 @@
 
 
 QWidget *view;
-GstBuffer *buffer;
-GstFlowReturn ret;
+int width = 640;
+int height = 480;
 
 pthread_t *network_thread;
 
@@ -13,14 +13,22 @@ void initilize_graphics_view(QWidget *window) {
 
     pthread_create(network_thread, NULL, udp_thread,NULL);
 
-    buffer = gst_buffer_new_allocate(NULL,)
-
 }
 
 void *udp_thread(void *args) {
 
+
+    
+
     while(1) {
-        
+
+        char *decoded_data = server_getframe();
+
+        QImage image(reinterpret_cast<const uchar *>(decoded_data),
+                 width, height, QImage::Format_RGB888);
+
+        videoLabel->setPixmap(QPixmap::fromImage(image));
+
     }
 
 }
