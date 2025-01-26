@@ -1,4 +1,5 @@
-
+#ifndef SERVER_H
+#define SERVER_H
 
 #ifndef __cplusplus
 extern "C" {
@@ -13,8 +14,10 @@ extern "C" {
 
 void server_init();
 
-char* server_getframe();
+char *server_getframe();
 
 #ifndef __cplusplus
 }
+#endif
+
 #endif

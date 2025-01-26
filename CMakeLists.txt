@@ -15,6 +15,9 @@ find_package(PkgConfig REQUIRED)
 
 
 
+add_library(server_lib STATIC src/server/server.c
+                       src/server/server.h)
+
 add_executable(Application
   src/main.cpp
   src/application.cpp
@@ -23,13 +26,14 @@ add_executable(Application
   src/ui/text_area.h
   src/ui/buttons.cpp
   src/ui/buttons.h
-  src/server/server.c
-  src/server/server.h
+  src/ui/graphics_view.cpp
+  src/ui/graphics_view.h
   src/MainForm.ui
 )
 target_link_libraries(Application Qt${QT_VERSION_MAJOR}::Core
                                   Qt${QT_VERSION_MAJOR}::Gui
-                                  Qt${QT_VERSION_MAJOR}::Widgets)
+                                  Qt${QT_VERSION_MAJOR}::Widgets
+                                  server_lib)
 
 
 
